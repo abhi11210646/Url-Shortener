@@ -4,11 +4,10 @@ module.exports = {
     
     shortenUrl:(req, res) => {
         var formattedUrl = req.params['0'].substring(0, req.params['0'].length);
-        console.log("formattedUrl.indexOf('http://')",formattedUrl.indexOf('http://'));
-        if (!/^(f|ht)tps?:\/\//i.test(formattedUrl)) {
+     if(validateUrl(formattedUrl)){
+          if (!/^(f|ht)tps?:\/\//i.test(formattedUrl)) {
              formattedUrl = "http://" + formattedUrl;
          }
-     if(validateUrl(formattedUrl)){
          var shortCode = Math.floor(Math.random()*(9999-1000)+1000);
          var shortUrl = req.headers['x-forwarded-proto'] +'://'+req.headers['host']+'/'+shortCode;
          var obj  = {"original_url":formattedUrl,"short_url": shortUrl };
