@@ -18,6 +18,18 @@ module.exports = {
      }else {
          res.json({"error":"Wrong Url Format."});
      }
+    },
+    
+    getoriginalUrl:(req, res) =>{
+        UrlMap.findOne({"shorten_url_id": req.params.shortCode}).then((urlObj)=>{
+                if(urlObj.original_url) {
+                    res.redirect(urlObj.original_url);
+                }else {
+                    res.json({"error": "No Url Found."});
+                }
+        }).catch((error)=>{
+            console.error("bhaiyya kuch to gadbad hai", error);
+        });
     }
     
 }

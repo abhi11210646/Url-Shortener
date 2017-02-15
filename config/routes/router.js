@@ -4,7 +4,7 @@ var urlShortenController = require("./../../controller/url-shortener");
 module.exports = () =>{
     
     router.get('/url/*', urlShortenController.shortenUrl);
-    
+    router.get('/:shortCode',urlShortenController.getoriginalUrl);
     return router;
     
 }
