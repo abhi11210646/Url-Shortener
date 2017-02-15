@@ -3,13 +3,14 @@ var Schema = mongoose.Schema;
 
 var urlMaped = new Schema({
         "shorten_url_id":{
-            "type": Number
+            "type": String,
+            "index": true
         },
         "original_url":{
             "type" : String,
             "trim" : true
         },
-        "shorten_url":{
+        "short_url":{
             "type" : String,
             "trim" : true
         },

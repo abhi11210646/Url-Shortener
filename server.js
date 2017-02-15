@@ -4,6 +4,7 @@ var app = express();
 var bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
+require('./model/tinyUrlmap');
 require("./config/routes/")(app);
 require('./config/db')();
 app.listen(process.env.PORT_c9, ()=>{
