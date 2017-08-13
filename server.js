@@ -1,7 +1,9 @@
 require('dotenv').config();
-var express = require('express');
-var app = express();
-var bodyParser = require("body-parser");
+const express = require('express');
+const app = express();
+const bodyParser = require("body-parser");
+const cors = require("cors");
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 require('./model/tinyUrlmap');
