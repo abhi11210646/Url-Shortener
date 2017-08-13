@@ -3,7 +3,7 @@ const UrlMap = mongoose.model('Url');
 module.exports = {
 
     shortenUrl: (req, res) => {
-        const formattedUrl = req.params['0'].substring(0, req.params['0'].length);
+        let formattedUrl = req.params['0'].substring(0, req.params['0'].length);
         if (validateUrl(formattedUrl)) {
             if (!/^(f|ht)tps?:\/\//i.test(formattedUrl)) {
                 formattedUrl = "http://" + formattedUrl;
@@ -16,7 +16,7 @@ module.exports = {
                     const shortCode = Math.floor(Math.random() * (9999 - 1000) + 1000);
                     const shortUrl = req.headers['x-forwarded-proto'] + '://' + req.headers['host'] + '/' + shortCode;
                     const obj = { "original_url": formattedUrl, "short_url": shortUrl };
-                    const urlMaped = new UrlMap(obj);
+                    let urlMaped = new UrlMap(obj);
                     urlMaped.shorten_url_id = shortCode;
                     urlMaped.save().then((data) => {
                         res.json(obj);
