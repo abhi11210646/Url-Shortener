@@ -7,8 +7,8 @@ FreeCodeCamp API Basejump: URL Shortener Microservice
 https://github.com/abhi11210646/React-JS-Mastering-Redux/tree/master/urlShortener
 ```
 <html><head>
-        
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<title> Url Shortener </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></link>
         </head>
 <body>
     <div class="container-fluid">
